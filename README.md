@@ -61,6 +61,16 @@ Local Development
 2. Run `Developer: Run Extension` (or launch an Extension Development Host from this folder).
 3. In the Extension Development Host, run `File Starter: New File from Template`.
 
+### Running Tests
+
+Tests use Node.js built-in test runner. No extra dependencies are needed.
+
+```
+npm test
+```
+
+This runs every `*.test.js` file under the `test/` directory. Node 18 or later is required.
+
 ### Local Install
 
 ```
