@@ -60,3 +60,16 @@ Local Development
 1. Open this folder in VS Code.
 2. Run `Developer: Run Extension` (or launch an Extension Development Host from this folder).
 3. In the Extension Development Host, run `File Starter: New File from Template`.
+
+### Local Install
+
+```
+### one-time: install the packaging tool
+npm install -g @vscode/vsce
+
+### package the extension
+vsce package
+
+### install the resulting .vsix
+code --install-extension file-starter-0.0.1.vsix
+```
