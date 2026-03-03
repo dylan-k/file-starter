@@ -1,0 +1,10 @@
+# Source and config not needed in the packaged extension
+
+.gitignore
+.vscode/**
+test/**
+Build artifacts
+================================================================================
+
+node_modules/**
+*.vsix

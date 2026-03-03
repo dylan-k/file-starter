@@ -1,0 +1,107 @@
+{
+  "name": "file-starter",
+  "displayName": "File Starter",
+  "description": "Create new files from workspace templates with configurable variable syntax.",
+  "version": "0.0.1",
+  "publisher": "dylan-k",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylan-k/file-starter"
+  },
+  "files": [
+    "extension.js",
+    "constants.js",
+    "commands/**",
+    "services/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fileStarter.createFile",
+        "title": "New File from Template",
+        "category": "File Starter"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "fileStarter.createFile",
+          "group": "navigation@100"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "fileStarter.createFile",
+          "group": "navigation@100"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "File Starter",
+      "properties": {
+        "fileStarter.templateDirectory": {
+          "type": "string",
+          "default": ".vscode/templates",
+          "description": "Template directory, relative to workspace root."
+        },
+        "fileStarter.templateFilePattern": {
+          "type": "string",
+          "default": "*.template.md",
+          "description": "Glob pattern used to discover template files."
+        },
+        "fileStarter.defaultDestination": {
+          "type": "string",
+          "default": "",
+          "description": "Default output folder relative to workspace root. Empty means infer from current context."
+        },
+        "fileStarter.variableSyntaxes": {
+          "type": "array",
+          "default": [
+            "doubleCurly",
+            "dollarCurly",
+            "singleCurly"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "doubleCurly",
+              "dollarCurly",
+              "singleCurly"
+            ],
+            "enumDescriptions": [
+              "{{variable}}",
+              "${variable}",
+              "{variable}"
+            ]
+          },
+          "description": "Variable delimiters to process in template content."
+        },
+        "fileStarter.customVariables": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          },
+          "description": "Custom variables available in template rendering."
+        }
+      }
+    }
+  }
+}
