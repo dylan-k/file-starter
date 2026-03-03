@@ -9,14 +9,6 @@
     "type": "git",
     "url": "https://github.com/dylan-k/file-starter"
   },
-  "files": [
-    "extension.js",
-    "constants.js",
-    "commands/**",
-    "services/**",
-    "README.md",
-    "LICENSE"
-  ],
   "engines": {
     "vscode": "^1.84.0"
   },
